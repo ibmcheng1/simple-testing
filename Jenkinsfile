@@ -20,9 +20,7 @@
 		} 
 		  
 		stage('Build') { 
-            steps {
-                sh 'mvn clean -P chrome,grid,localhost test' 
-            }
+            sh 'mvn clean -P chrome,grid,localhost test'
         }
     }
 	
