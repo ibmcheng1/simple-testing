@@ -1,6 +1,6 @@
 def volumes = [ hostPathVolume(hostPath: '/var/run/docker.sock', mountPath: '/var/run/docker.sock') ]
 volumes += secretVolume(secretName: 'microclimate-registry-secret', mountPath: '/jenkins_docker_sec')
-podTemplate(label: 'icp-liberty-build',
+podTemplate(label: 'icp-ibmcheng1-build',
             nodeSelector: 'beta.kubernetes.io/arch=amd64',
     containers: [
         containerTemplate(name: 'maven', image: 'maven:3.5.3-jdk-8', ttyEnabled: true, command: 'cat'),
@@ -9,28 +9,15 @@ podTemplate(label: 'icp-liberty-build',
     ],
     volumes: volumes
 )
-    
-    node {
+
+{
+    node ('icp-ibmcheng1-build') {
         def gitCommit
         stage ('Extract') {
           checkout scm
           gitCommit = sh(script: 'git rev-parse --short HEAD', returnStdout: true).trim()
           echo "checked out git commit ${gitCommit}"
         }
- 
-        stage ('Environment Info ...') {		
-            def imageTag = null
-            imageTag = gitCommit
-            sh """
-            #!/bin/bash
-		    pwd
-		    ls -l
-	        echo "imageTag: ${imageTag}"
-	        echo "BUILD_NUMBER: ${BUILD_NUMBER}"
-		    echo "WORKSPACE: ${WORKSPACE}"
-	        """          				
-		} 
-		  
         stage ('maven build') {
           container('maven') {
             sh '''
@@ -38,7 +25,6 @@ podTemplate(label: 'icp-liberty-build',
             '''
           }
         }
-
-        
+ 
     }
-	
+}
