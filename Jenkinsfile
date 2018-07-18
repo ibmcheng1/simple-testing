@@ -19,7 +19,7 @@
 		    echo "Run maven build"
 		    mvn clean -P chrome,grid,localhost test
 	        """          				
-		}     	    
+		}   
 
     }
 	
