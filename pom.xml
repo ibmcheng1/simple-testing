@@ -204,7 +204,7 @@
     <profile>
       <id>grid</id>
       <properties>
-        <grid.url>http://172.21.20.2:31362/wd/hub/</grid.url>
+        <grid.url>http://9.37.138.12:32735/wd/hub/</grid.url>
       </properties>
     </profile>
   </profiles>
