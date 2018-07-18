@@ -1,3 +1,15 @@
+def volumes = [ hostPathVolume(hostPath: '/var/run/docker.sock', mountPath: '/var/run/docker.sock') ]
+volumes += secretVolume(secretName: 'microclimate-registry-secret', mountPath: '/jenkins_docker_sec')
+podTemplate(label: 'icp-liberty-build',
+            nodeSelector: 'beta.kubernetes.io/arch=amd64',
+    containers: [
+        containerTemplate(name: 'maven', image: 'maven:3.5.3-jdk-8', ttyEnabled: true, command: 'cat'),
+        containerTemplate(name: 'docker', image: 'docker:17.12', ttyEnabled: true, command: 'cat'),
+        containerTemplate(name: 'kubectl', image: 'ibmcom/k8s-kubectl:v1.8.3', ttyEnabled: true, command: 'cat'),
+    ],
+    volumes: volumes
+)
+    
     node {
         def gitCommit
         stage ('Extract') {
@@ -19,19 +31,14 @@
 	        """          				
 		} 
 		  
-		stage('Build') { 
-            sh 'mvn clean -P chrome,grid,localhost test'
-            withMaven(
-		        // Maven installation declared in the Jenkins "Global Tool Configuration"
-		        maven: 'M3',
-		        // Maven settings.xml file defined with the Jenkins Config File Provider Plugin
-		        // Maven settings and global settings can also be defined in Jenkins Global Tools Configuration
-		        mavenSettingsConfig: 'my-maven-settings',
-		        mavenLocalRepo: '.repository') {	
-				    // Run the maven build
-				    sh "mvn clean -P chrome,grid,localhost test"
-	    		} // withMaven will discover the generated Maven artifacts, JUnit Surefire & FailSafe & FindBugs reports...
+        stage ('maven build') {
+          container('maven') {
+            sh '''
+            mvn clean -P chrome,grid,localhost test
+            '''
+          }
         }
+
         
     }
 	
