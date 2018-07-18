@@ -6,7 +6,7 @@
           echo "checked out git commit ${gitCommit}"
         }
  
-        stage ('maven build...') {		
+        stage ('Environment Info ...') {		
             def imageTag = null
             imageTag = gitCommit
             sh """
@@ -16,10 +16,13 @@
 	        echo "imageTag: ${imageTag}"
 	        echo "BUILD_NUMBER: ${BUILD_NUMBER}"
 		    echo "WORKSPACE: ${WORKSPACE}"
-		    echo "Run maven build"
-		    mvn clean -P chrome,grid,localhost test
 	        """          				
-		}   
-
+		} 
+		  
+		stage('Build') { 
+            steps {
+                sh 'mvn clean -P chrome,grid,localhost test' 
+            }
+        }
     }
 	
