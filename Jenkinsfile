@@ -16,6 +16,8 @@
 	        echo "imageTag: ${imageTag}"
 	        echo "BUILD_NUMBER: ${BUILD_NUMBER}"
 		    echo "WORKSPACE: ${WORKSPACE}"
+		    echo "Run maven build"
+		    mvn clean -P chrome,grid,localhost test
 	        """          				
 		}     	    
 
