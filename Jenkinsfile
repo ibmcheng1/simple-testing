@@ -9,12 +9,17 @@
         }
         stage ('maven build') {
         
-          gitCommit = sh(script: 'mvn clean -P chrome,grid,localhost test', returnStdout: true).trim()
+          //gitCommit = sh(script: 'mvn clean -P chrome,grid,localhost test', returnStdout: true).trim()
           //container('maven') {
           //  sh '''
           //  mvn clean -P chrome,grid,localhost test
           //  '''
           //}
+          
+          def mvnTool = tool 'Maven'
+          sh '''
+          ${mvnTool}/bin/mvn clean -P chrome,grid,localhost test
+          '''  
         }
  
     }
