@@ -16,9 +16,9 @@
           //  '''
           //}
           
-          def mvnTool = tool 'Maven'
+
           sh '''
-          ${mvnTool}/bin/mvn clean -P chrome,grid,localhost test
+          /usr/local/apache-maven-3.5.4/bin/mvn clean -P chrome,grid,localhost test
           '''  
         }
  
