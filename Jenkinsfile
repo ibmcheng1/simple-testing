@@ -1,6 +1,6 @@
 
 
-    node ('icp-ibmcheng1-build') {
+    node {
         def gitCommit
         stage ('Extract') {
           checkout scm
