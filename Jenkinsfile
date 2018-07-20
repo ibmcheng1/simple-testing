@@ -8,10 +8,12 @@
           echo "checked out git commit ${gitCommit}"
         }
         stage ('maven build') {
+        
+          gitCommit = sh(script: 'mvn clean -P chrome,grid,localhost test', returnStdout: true).trim()
           //container('maven') {
-            sh '''
-            mvn clean -P chrome,grid,localhost test
-            '''
+          //  sh '''
+          //  mvn clean -P chrome,grid,localhost test
+          //  '''
           //}
         }
  
