@@ -19,8 +19,6 @@
           
 
           sh '''
-          which mvn
-          find / -name mvn
           mvn clean -P chrome,grid,localhost test
           '''  
         }
