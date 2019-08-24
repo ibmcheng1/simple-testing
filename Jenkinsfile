@@ -13,12 +13,13 @@
           //container('maven') {
           //  sh '''
           //  mvn clean -P chrome,grid,localhost test
+          //      /usr/local/apache-maven-3.5.4/bin/mvn clean -P chrome,grid,localhost test  
           //  '''
           //}
           
 
           sh '''
-          /usr/local/apache-maven-3.5.4/bin/mvn clean -P chrome,grid,localhost test
+          mvn clean -P chrome,grid,localhost test
           '''  
         }
  
