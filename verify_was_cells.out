@@ -1,0 +1,31 @@
+Testing dmgr process on pgasd166
+tcp6       0      0 :::10001                :::*                    LISTEN      372857     30683844   1914500/java        
+tcp6       0      0 ::1:60620               ::1:10001               TIME_WAIT   0          0          -                   
+tcp6       0      0 ::1:53786               ::1:10001               TIME_WAIT   0          0          -                   
+tcp6       0      0 :::10003                :::*                    LISTEN      372857     30683815   1914500/java        
+tcp6       0      0 10.110.28.185:10003     10.110.28.185:41266     TIME_WAIT   0          0          -                   
+Testing dmgr process on pgasd167
+tcp6       0      0 :::10001                :::*                    LISTEN      372857     7917420    1421571/java        
+tcp6       0      0 ::1:10001               ::1:47094               TIME_WAIT   0          0          -                   
+tcp6       0      0 ::1:10001               ::1:59902               TIME_WAIT   0          0          -                   
+tcp6       0      0 :::10003                :::*                    LISTEN      372857     7917414    1421571/java        
+tcp6       0      0 10.110.28.184:10003     10.110.28.189:51996     TIME_WAIT   0          0          -                   
+tcp6       0      0 10.110.28.184:10003     10.110.28.184:41138     TIME_WAIT   0          0          -                   
+tcp6       0      0 10.110.28.184:10003     10.110.28.189:51990     TIME_WAIT   0          0          -                   
+tcp6       0      0 10.110.28.184:10003     10.110.28.189:51998     TIME_WAIT   0          0          -                   
+Testing dmgr process on pgasd257
+tcp6       0      0 :::10001                :::*                    LISTEN      372857     185712308  897297/java         
+tcp6       0      0 ::1:10001               ::1:51510               TIME_WAIT   0          0          -                   
+tcp6       0      0 ::1:10001               ::1:56196               TIME_WAIT   0          0          -                   
+tcp6       0      0 :::10003                :::*                    LISTEN      372857     185712302  897297/java         
+Testing dmgr process on pgasd258
+tcp6       0      0 :::10001                :::*                    LISTEN      372857     7531376    1295573/java        
+tcp6       0      0 ::1:10001               ::1:59412               TIME_WAIT   0          0          -                   
+tcp6       0      0 ::1:56596               ::1:10001               TIME_WAIT   0          0          -                   
+tcp6       0      0 :::10003                :::*                    LISTEN      372857     7531370    1295573/java        
+Testing dmgr process on lcdsd6309
+tcp6       0      0 :::10001                :::*                    LISTEN      372857     6559992    1639641/java        
+tcp6       0      0 ::1:10001               ::1:24158               TIME_WAIT   0          0          -                   
+tcp6       0      0 ::1:10001               ::1:42994               TIME_WAIT   0          0          -                   
+tcp6       0      0 :::10003                :::*                    LISTEN      372857     6555422    1639641/java        
+tcp6       0      0 10.110.81.105:10003     10.110.81.105:21734     TIME_WAIT   0          0          -                   
